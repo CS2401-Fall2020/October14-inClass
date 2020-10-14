@@ -9,6 +9,11 @@ public class driver {
     head.append(new Course("CS 1","Akbar","CS",1301));
     head.next.next = new DoubleLinkedListNode(new Course("CS 3","Fuentez","CS",2302), head.next);
     head.append("Special Topics"); // this should not work.... but it does..... 
+    /*
+     * This will fail if the original class type of head is DoubleLinkedListNode<Course> 
+     * rather than just DoubleLinkedListNode since in the second case the type of G 
+     * is just 'Object' but it happens to be holding a 'Course'
+     */
     head.next.next.next.next = new DoubleLinkedListNode(new SomethingElse("Hello"),head.next.next.next);
     
     System.out.println(((SomethingElse)head.next.next.next.next.value).counter);
